@@ -1,0 +1,129 @@
+// css components
+.textbox {
+    //--wBefore: 80px;
+    --padLeft: 100px;
+    --padRight: 20px;
+    padding-left: var( --padLeft);
+    padding-right: var( --padRight);
+    padding-top: 80px;
+    .title {
+        @include text(40px, bold, 1, $black-cl, uppercase);
+        position: relative;
+        //padding-left: calc(var(--wBefore) +15px);
+        display: inline-flex;
+        align-items: center;
+        &:before {
+            content: '';
+            width: 80px;
+            height: 2px;
+            background-color: #555555;
+            display: inline-block;
+            position: relative;
+            margin-left: -80px;
+            left: -20px;
+        }
+        &.--yellow {
+            color: $yellow-cl;
+        }
+    }
+    .desc {
+        padding: 24px 0 24px 0;
+        line-height: 1.5;
+    }
+    @include sm {
+        --padLeft: 0px;
+        --padRight: 20px;
+        padding-left: var( --padLeft);
+        padding-right: var( --padRight);
+        padding-top: 20px;
+        .title {
+            &:before {
+                display: none;
+            }
+        }
+    }
+    @include xs {
+        .title {
+            font-size: 34px;
+        }
+    }
+    &.--rightside {
+        text-align: right;
+        padding-left: initial;
+        padding-right: var( --padLeft);
+        padding-left: var( --padRight);
+        .title {
+            display: inline-flex;
+            flex-direction: row-reverse;
+            &:before {
+                margin-left: initial;
+                margin-right: -80px;
+                left: initial;
+                right: -20px;
+            }
+        }
+        .desc {
+            padding: 24px 0 24px 0;
+            line-height: 1.5;
+        }
+        @include sm {
+            --padLeft: 0px;
+            --padRight: 20px;
+            padding-left: var( --padLeft);
+            padding-right: var( --padRight);
+            padding-top: 20px;
+            .title {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+        @include xs {
+            .title {
+                font-size: 34px;
+            }
+        }
+    }
+    &.--centralside {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        text-align: center;
+        max-width: 460px;
+        margin: auto;
+        .title {
+            flex-direction: column-reverse;
+            &:before {
+                left: initial;
+                right: initial;
+                margin-right: auto;
+                margin-left: auto;
+                background-color: $yellow-cl;
+                height: 2px;
+                width: 40px;
+                margin: 30px auto 0 auto;
+            }
+        }
+        .desc {
+            padding: 24px 0 24px 0;
+            line-height: 1.5;
+        }
+        @include sm {
+            --padLeft: 0px;
+            --padRight: 20px;
+            padding-left: var( --padLeft);
+            padding-right: var( --padRight);
+            padding-top: 20px;
+            .title {
+                &:before {
+                    display: block;
+                }
+            }
+        }
+        @include xs {
+            .title {
+                font-size: 34px;
+            }
+        }
+    }
+}

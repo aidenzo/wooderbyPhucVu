@@ -1,0 +1,77 @@
+        // css button, title, icon, elements...
+        img {
+            max-width: 100%;
+        }
+        
+        .btnmore {
+            opacity: 0.7;
+            display: inline-flex;
+            font-size: 14px;
+            font-family: bold;
+            letter-spacing: 2px;
+            position: relative;
+            text-decoration: none;
+            @include transition($t);
+            color: $black-cl;
+            img {
+                margin-left: 10px;
+                @include transform(translateX(0px));
+                @include transition($t);
+            }
+            &:before {
+                content: '';
+                width: 35px;
+                height: 1px;
+                
+                background: $yellow-cl;
+                display: block;
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+            }
+            &:hover {
+                opacity: 1;
+                img {
+                    @include transform(translateX(10px));
+                    @include transition($t);
+                }
+            }
+        }
+        
+        .btnmain {
+            border: 1px solid #fff;
+            padding: 12px 35px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            @include xs {
+                padding: 10px 20px;
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            border: 1px solid $yellow-cl;
+            cursor: pointer;
+            display: none;
+            background: $yellow-cl;
+            opacity: 0.3;
+            @include transition($t);
+            img {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:hover {
+                @include transition($t);
+                opacity: 0.6;
+            }
+        }
